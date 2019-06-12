@@ -17,3 +17,5 @@
     - barra volume
     - barra de frequencia
     - caixinha
+    - LCD
+    - SAME71
