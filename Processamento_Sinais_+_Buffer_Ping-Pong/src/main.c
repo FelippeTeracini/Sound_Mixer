@@ -76,6 +76,12 @@ typedef struct {
 	int lowpass;
 } effects_t;
 
+typedef struct {
+	int values[11000];
+	int p;
+	int maxp;
+} reverb_buffer_t;
+
 /************************************************************************/
 /*        definir funcs                                                 */
 /************************************************************************/
@@ -180,6 +186,8 @@ volatile int lowpass_value = 10000;
 volatile int count = 0;
 volatile int ground = 400;
 
+reverb_buffer_t reverb_buffer;
+
 static void Softning(){
 	temp = g_ul_value;
 	g_ul_value = (int) ((float) g_ul_value * (float) g_ul_value_old* 0.01) + g_ul_value ;
@@ -230,6 +238,17 @@ static void lowPassFrequency(int CUTOFF)
 	g_ul_value = (int) ((double) past + (alpha*((double) current - (double) past)) + ground);
 }
 
+static void reverb(int value) {
+	double max_value = 100;
+	double normal_value = (g_ul_value - ground);
+	
+	g_ul_value = (int) (normal_value +
+		reverb_buffer.values[reverb_buffer.p]*(((double) value)/ (max_value*2)) + 
+// 		reverb_buffer.values[reverb_buffer.p]*(((double) value)/ (max_value*4)) + 
+		ground);
+
+}
+
 static void AFEC_Audio_callback(void){
 	/** The conversion data value */
 
@@ -244,6 +263,7 @@ static void AFEC_Audio_callback(void){
 	g_ul_value = afec_channel_get_value(AFEC0, AFEC_CHANNEL_PIN);
 	
 	/*        EFFECTS        */
+	reverb(100);
 	Saturation(saturation_value);
 	Gain(gain_value);
 	lowPassFrequency(lowpass_value);
@@ -251,6 +271,14 @@ static void AFEC_Audio_callback(void){
 	
 	count += g_ul_value;
 	g_ul_value_old = g_ul_value;
+	if (reverb_buffer.p < reverb_buffer.maxp) {
+		reverb_buffer.values[reverb_buffer.p] = g_ul_value;
+		reverb_buffer.p += 1;
+	} else {
+		reverb_buffer.values[reverb_buffer.p] = g_ul_value;
+		reverb_buffer.p = 0;
+	}
+	
 	ppbuf_insert_active(&buffer, &g_ul_value, 1);
 	ppbuf_remove_inactive(&buffer, &buf, 1);	
 	
@@ -473,6 +501,13 @@ void TC_init(Tc * TC, int ID_TC, int TC_CHANNEL, int freq){
 static void task_adc_to_dac(void *pvParameters) {
 
 	xQueueEffects = xQueueCreate( 100, sizeof( effects_t ) );
+	
+	for (int i = 0; i < reverb_buffer.maxp; i++) {
+		reverb_buffer.values[i] = 0;
+	}
+	reverb_buffer.p = 0;
+	reverb_buffer.maxp = 11000;
+
 
 	config_ADC_AUDIO();
 	
