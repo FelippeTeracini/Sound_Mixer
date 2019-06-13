@@ -118,7 +118,7 @@ int ppbuf_dma_force_swap(ppbuf_t* p) {
 	return(ret);
 }
 
-void lowPassFrequency(double* input, double* output, int points)
+void lowPassFrequency(char* input, char* output, int points)
 {
 	int CUTOFF = 10000;
 	int SAMPLE_RATE = 44100;

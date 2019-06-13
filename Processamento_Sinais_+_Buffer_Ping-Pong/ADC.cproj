@@ -51,6 +51,7 @@
     <configuration key="config.compiler.armgcc.printf" value="iprintf" default="iprintf" content-id="Atmel.ASF" />
     <configuration key="config.compiler.armgcc.scanf" value="iscanf" default="iscanf" content-id="Atmel.ASF" />
     <configuration key="config.sam.pio.pio_handler" value="yes" default="yes" content-id="Atmel.ASF" />
+    <configuration key="config.thirdparty.os.freertos-8_2_3.memory_manager" value="1_static_allocation" default="1_static_allocation" content-id="Atmel.ASF" />
   </configurations>
   <files>
     <file path="src/ASF/common/boards/board.h" framework="" version="" source="common/boards/board.h" changed="False" content-id="Atmel.ASF" />
@@ -249,6 +250,7 @@
     <file path="src/ASF/common/services/delay/delay.h" framework="" version="3.34.1" source="common\services\delay\delay.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/sam/drivers/dacc/dacc.c" framework="" version="3.34.1" source="sam\drivers\dacc\dacc.c" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/sam/drivers/dacc/dacc.h" framework="" version="3.34.1" source="sam\drivers\dacc\dacc.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/Config/FreeRTOSConfig.h" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\module_config\FreeRTOSConfig.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/tasks.c" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\source\tasks.c" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/queue.c" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\source\queue.c" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/list.c" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\source\list.c" changed="False" content-id="Atmel.ASF" />
@@ -271,7 +273,6 @@
     <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/include/task.h" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\source\include\task.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/include/FreeRTOS_CLI.h" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\source\include\FreeRTOS_CLI.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/thirdparty/freertos/freertos-7.3.0/source/include/croutine.h" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\source\include\croutine.h" changed="False" content-id="Atmel.ASF" />
-    <file path="src/Config/FreeRTOSConfig.h" framework="" version="3.34.1" source="thirdparty\freertos\freertos-7.3.0\module_config\FreeRTOSConfig.h" changed="False" content-id="Atmel.ASF" />
   </files>
   <documentation help="http://asf.atmel.com/docs/3.34.1/sam.drivers.afec.example1.same70_xplained/html/index.html" />
   <offline-documentation help="" />
@@ -666,6 +667,15 @@
     <Compile Include="src\ASF\sam\drivers\dacc\dacc.c">
       <SubType>compile</SubType>
     </Compile>
+    <None Include="src\ASF\thirdparty\freertos\freertos-7.3.0\ATMEL-disclaimer.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\freertos\freertos-7.3.0\readme.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\FreeRTOSConfig.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\ASF\thirdparty\freertos\freertos-7.3.0\source\FreeRTOS_CLI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -726,9 +736,6 @@
     <Compile Include="src\ASF\thirdparty\freertos\freertos-7.3.0\source\timers.c">
       <SubType>compile</SubType>
     </Compile>
-    <None Include="src\config\FreeRTOSConfig.h">
-      <SubType>compile</SubType>
-    </None>
     <Compile Include="src\PingPong.h">
       <SubType>compile</SubType>
     </Compile>
@@ -763,12 +770,6 @@
       <SubType>compile</SubType>
     </None>
     <None Include="src\asf.h">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\thirdparty\freertos\freertos-7.3.0\ATMEL-disclaimer.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="src\ASF\thirdparty\freertos\freertos-7.3.0\readme.txt">
       <SubType>compile</SubType>
     </None>
     <None Include="src\config\conf_uart_serial.h">

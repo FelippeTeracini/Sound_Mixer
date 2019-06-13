@@ -1,1 +1,473 @@
-{"ramps":[{"id":3,"offset":0,"share":100},{"id":4,"offset":0,"share":100},{"id":5,"offset":0,"share":100},{"id":6,"offset":0,"share":100},{"id":7,"offset":0,"share":100},{"id":8,"offset":0,"share":100},{"id":9,"offset":0,"share":100},{"id":10,"offset":0,"share":100},{"id":11,"offset":0,"share":100},{"id":14,"offset":0,"share":1},{"id":17,"offset":0,"share":100},{"id":18,"offset":0,"share":100},{"id":21,"offset":0,"share":1},{"id":24,"offset":0,"share":100},{"id":25,"offset":0,"share":100},{"id":26,"offset":0,"share":100},{"id":27,"offset":0,"share":100},{"id":29,"offset":0,"share":100},{"id":30,"offset":0,"share":100},{"id":31,"offset":31,"share":100},{"id":32,"offset":31,"share":0},{"id":33,"offset":31,"share":0},{"id":34,"offset":31,"share":100},{"id":35,"offset":0,"share":100},{"id":36,"offset":0,"share":100},{"id":37,"offset":0,"share":100},{"id":39,"offset":0,"share":100},{"id":41,"offset":0,"share":100},{"id":42,"offset":0,"share":100},{"id":43,"offset":28,"share":100},{"id":44,"offset":10,"share":100},{"id":45,"offset":0,"share":100},{"id":46,"offset":0,"share":100},{"id":47,"offset":0,"share":100},{"id":48,"offset":0,"share":100},{"id":49,"offset":0,"share":100},{"id":52,"offset":0,"share":100},{"id":53,"offset":0,"share":1},{"id":54,"offset":0,"share":100},{"id":55,"offset":0,"share":100},{"id":56,"offset":0,"share":100},{"id":58,"offset":0,"share":100},{"id":60,"offset":0,"share":100},{"id":61,"offset":0,"share":100},{"id":63,"offset":0,"share":100},{"id":66,"offset":0,"share":100},{"id":67,"offset":0,"share":100},{"id":68,"offset":0,"share":100},{"id":70,"offset":0,"share":100},{"id":73,"offset":0,"share":100},{"id":77,"offset":0,"share":100},{"id":78,"offset":0,"share":100},{"id":79,"offset":0,"share":0},{"id":80,"offset":0,"share":100},{"id":82,"offset":0,"share":100},{"id":83,"offset":0,"share":100},{"id":84,"offset":0,"share":100},{"id":85,"offset":0,"share":100},{"id":86,"offset":0,"share":100},{"id":87,"offset":0,"share":100},{"id":88,"offset":0,"share":100},{"id":90,"offset":0,"share":100},{"id":92,"offset":0,"share":100},{"id":94,"offset":0,"share":100},{"id":95,"offset":0,"share":100},{"id":96,"offset":0,"share":100},{"id":97,"offset":0,"share":100},{"id":98,"offset":0,"share":100},{"id":100,"offset":0,"share":100},{"id":101,"offset":0,"share":100},{"id":103,"offset":0,"share":100},{"id":105,"offset":0,"share":100},{"id":107,"offset":0,"share":100},{"id":108,"offset":0,"share":100},{"id":109,"offset":0,"share":100},{"id":112,"offset":0,"share":100},{"id":114,"offset":0,"share":100},{"id":117,"offset":0,"share":100},{"id":118,"offset":0,"share":100},{"id":120,"offset":0,"share":100},{"id":121,"offset":0,"share":100},{"id":122,"offset":0,"share":100},{"id":123,"offset":0,"share":100},{"id":124,"offset":0,"share":100},{"id":125,"offset":0,"share":100},{"id":127,"offset":0,"share":100},{"id":129,"offset":0,"share":100},{"id":131,"offset":0,"share":100},{"id":133,"offset":0,"share":100},{"id":135,"offset":0,"share":100},{"id":136,"offset":0,"share":100},{"id":138,"offset":0,"share":100},{"id":139,"offset":0,"share":0},{"id":141,"offset":0,"share":100},{"id":142,"offset":0,"share":0},{"id":143,"offset":0,"share":0},{"id":144,"offset":0,"share":100},{"id":146,"offset":0,"share":100},{"id":151,"offset":0,"share":100},{"id":153,"offset":0,"share":100},{"id":155,"offset":0,"share":100},{"id":156,"offset":0,"share":100},{"id":157,"offset":0,"share":100},{"id":158,"offset":0,"share":100},{"id":159,"offset":0,"share":100},{"id":165,"offset":0,"share":100},{"id":166,"offset":0,"share":0},{"id":167,"offset":0,"share":100},{"id":168,"offset":0,"share":100},{"id":171,"offset":0,"share":100},{"id":172,"offset":0,"share":100},{"id":173,"offset":0,"share":100},{"id":174,"offset":0,"share":100},{"id":175,"offset":0,"share":100},{"id":176,"offset":0,"share":100},{"id":177,"offset":0,"share":100},{"id":178,"offset":0,"share":100},{"id":179,"offset":0,"share":10},{"id":181,"offset":0,"share":0},{"id":182,"offset":0,"share":100},{"id":183,"offset":0,"share":100},{"id":184,"offset":0,"share":100},{"id":188,"offset":0,"share":0},{"id":189,"offset":0,"share":0},{"id":191,"offset":0,"share":100},{"id":194,"offset":0,"share":100},{"id":195,"offset":0,"share":100},{"id":196,"offset":0,"share":100},{"id":197,"offset":0,"share":100},{"id":198,"offset":0,"share":100},{"id":200,"offset":0,"share":100},{"id":201,"offset":0,"share":100},{"id":204,"offset":0,"share":100},{"id":205,"offset":0,"share":100},{"id":206,"offset":0,"share":100},{"id":207,"offset":0,"share":100},{"id":208,"offset":0,"share":100},{"id":210,"offset":0,"share":100},{"id":211,"offset":0,"share":100},{"id":216,"offset":0,"share":100},{"id":217,"offset":0,"share":100},{"id":218,"offset":0,"share":100},{"id":219,"offset":0,"share":100},{"id":221,"offset":0,"share":100},{"id":224,"offset":0,"share":100},{"id":226,"offset":0,"share":100},{"id":228,"offset":0,"share":100},{"id":231,"offset":0,"share":100},{"id":232,"offset":0,"share":100},{"id":234,"offset":0,"share":100},{"id":239,"offset":0,"share":100},{"id":240,"offset":0,"share":100},{"id":242,"offset":0,"share":100},{"id":243,"offset":0,"share":100},{"id":244,"offset":0,"share":100},{"id":248,"offset":0,"share":100},{"id":249,"offset":0,"share":100},{"id":251,"offset":0,"share":100},{"id":252,"offset":0,"share":100},{"id":253,"offset":0,"share":100},{"id":254,"offset":0,"share":100},{"id":256,"offset":0,"share":100},{"id":258,"offset":0,"share":0},{"id":260,"offset":0,"share":100},{"id":261,"offset":0,"share":0},{"id":262,"offset":0,"share":100},{"id":265,"offset":0,"share":100},{"id":267,"offset":0,"share":100},{"id":271,"offset":0,"share":100},{"id":272,"offset":0,"share":100},{"id":274,"offset":0,"share":100},{"id":275,"offset":42,"share":5},{"id":276,"offset":0,"share":100},{"id":277,"offset":0,"share":100},{"id":280,"offset":0,"share":0},{"id":282,"offset":0,"share":100},{"id":283,"offset":0,"share":0},{"id":289,"offset":0,"share":100},{"id":290,"offset":0,"share":100},{"id":293,"offset":0,"share":100},{"id":296,"offset":0,"share":100},{"id":297,"offset":0,"share":0},{"id":299,"offset":0,"share":100},{"id":300,"offset":0,"share":100},{"id":303,"offset":0,"share":100},{"id":306,"offset":0,"share":100},{"id":307,"offset":0,"share":100},{"id":309,"offset":0,"share":100},{"id":315,"offset":0,"share":100},{"id":316,"offset":0,"share":100},{"id":317,"offset":0,"share":100},{"id":318,"offset":0,"share":100},{"id":319,"offset":0,"share":100},{"id":320,"offset":0,"share":100},{"id":322,"offset":0,"share":100},{"id":323,"offset":0,"share":100},{"id":326,"offset":0,"share":100},{"id":327,"offset":0,"share":100},{"id":330,"offset":0,"share":100},{"id":331,"offset":0,"share":100},{"id":332,"offset":0,"share":100},{"id":333,"offset":0,"share":0},{"id":334,"offset":0,"share":100},{"id":335,"offset":0,"share":100},{"id":336,"offset":0,"share":100},{"id":337,"offset":0,"share":100},{"id":338,"offset":0,"share":100},{"id":339,"offset":0,"share":100},{"id":352,"offset":0,"share":100},{"id":358,"offset":0,"share":100},{"id":360,"offset":0,"share":100},{"id":361,"offset":0,"share":100},{"id":362,"offset":0,"share":100},{"id":364,"offset":0,"share":100},{"id":366,"offset":0,"share":100},{"id":367,"offset":0,"share":100},{"id":368,"offset":0,"share":0},{"id":369,"offset":0,"share":0},{"id":370,"offset":0,"share":100},{"id":371,"offset":0,"share":1},{"id":373,"offset":0,"share":100},{"id":374,"offset":0,"share":100},{"id":379,"offset":0,"share":100},{"id":380,"offset":0,"share":100},{"id":381,"offset":0,"share":100},{"id":382,"offset":0,"share":100},{"id":383,"offset":0,"share":100},{"id":384,"offset":0,"share":100},{"id":385,"offset":0,"share":100},{"id":386,"offset":0,"share":100},{"id":387,"offset":0,"share":100},{"id":388,"offset":0,"share":100},{"id":389,"offset":0,"share":100},{"id":392,"offset":0,"share":100},{"id":393,"offset":0,"share":100},{"id":394,"offset":0,"share":0},{"id":395,"offset":0,"share":0},{"id":398,"offset":0,"share":100},{"id":399,"offset":0,"share":100},{"id":401,"offset":0,"share":100},{"id":402,"offset":0,"share":100},{"id":404,"offset":0,"share":100},{"id":405,"offset":0,"share":100},{"id":406,"offset":0,"share":100},{"id":407,"offset":0,"share":0},{"id":408,"offset":0,"share":100},{"id":413,"offset":0,"share":0},{"id":414,"offset":0,"share":100},{"id":416,"offset":0,"share":100},{"id":421,"offset":0,"share":100},{"id":422,"offset":0,"share":100},{"id":426,"offset":0,"share":100},{"id":427,"offset":0,"share":0},{"id":430,"offset":0,"share":100},{"id":432,"offset":0,"share":100},{"id":433,"offset":0,"share":0},{"id":434,"offset":0,"share":100},{"id":435,"offset":0,"share":100},{"id":437,"offset":0,"share":0},{"id":438,"offset":0,"share":100},{"id":440,"offset":0,"share":100},{"id":443,"offset":0,"share":100},{"id":445,"offset":0,"share":100},{"id":446,"offset":0,"share":100},{"id":447,"offset":0,"share":100},{"id":448,"offset":0,"share":100},{"id":449,"offset":0,"share":15},{"id":450,"offset":0,"share":100},{"id":451,"offset":0,"share":0},{"id":453,"offset":0,"share":100},{"id":455,"offset":0,"share":100},{"id":456,"offset":0,"share":100},{"id":459,"offset":0,"share":100},{"id":460,"offset":0,"share":100},{"id":462,"offset":0,"share":100},{"id":471,"offset":0,"share":100},{"id":472,"offset":0,"share":25},{"id":474,"offset":0,"share":100},{"id":475,"offset":0,"share":100},{"id":476,"offset":0,"share":100},{"id":477,"offset":0,"share":100},{"id":479,"offset":0,"share":100},{"id":480,"offset":0,"share":100},{"id":482,"offset":0,"share":30},{"id":485,"offset":0,"share":100},{"id":486,"offset":0,"share":100},{"id":489,"offset":0,"share":0},{"id":490,"offset":0,"share":100},{"id":491,"offset":0,"share":100},{"id":492,"offset":0,"share":15},{"id":493,"offset":0,"share":100},{"id":495,"offset":0,"share":100},{"id":501,"offset":0,"share":100},{"id":502,"offset":0,"share":100},{"id":503,"offset":0,"share":100},{"id":504,"offset":0,"share":100},{"id":506,"offset":0,"share":100},{"id":509,"offset":0,"share":100},{"id":511,"offset":0,"share":100},{"id":515,"offset":0,"share":100},{"id":516,"offset":0,"share":100},{"id":517,"offset":0,"share":100},{"id":518,"offset":23,"share":100},{"id":519,"offset":0,"share":100},{"id":520,"offset":0,"share":100},{"id":522,"offset":0,"share":100},{"id":523,"offset":23,"share":100},{"id":526,"offset":0,"share":100},{"id":527,"offset":0,"share":0},{"id":528,"offset":0,"share":100},{"id":531,"offset":0,"share":100},{"id":532,"offset":23,"share":100},{"id":533,"offset":0,"share":100},{"id":534,"offset":0,"share":100},{"id":535,"offset":0,"share":100},{"id":537,"offset":0,"share":100},{"id":539,"offset":0,"share":75},{"id":540,"offset":0,"share":25},{"id":543,"offset":0,"share":100},{"id":544,"offset":0,"share":100},{"id":545,"offset":0,"share":100},{"id":546,"offset":0,"share":100},{"id":548,"offset":0,"share":100},{"id":549,"offset":0,"share":100},{"id":550,"offset":0,"share":100},{"id":551,"offset":0,"share":0},{"id":552,"offset":0,"share":100},{"id":554,"offset":0,"share":100},{"id":555,"offset":0,"share":100},{"id":556,"offset":0,"share":100},{"id":558,"offset":0,"share":100},{"id":559,"offset":0,"share":100},{"id":561,"offset":0,"share":100},{"id":562,"offset":0,"share":100},{"id":565,"offset":23,"share":100},{"id":566,"offset":0,"share":100},{"id":568,"offset":0,"share":100},{"id":569,"offset":0,"share":100},{"id":570,"offset":0,"share":100},{"id":572,"offset":0,"share":100},{"id":573,"offset":0,"share":0},{"id":577,"offset":0,"share":100},{"id":578,"offset":0,"share":100},{"id":581,"offset":0,"share":0},{"id":583,"offset":17,"share":0},{"id":585,"offset":17,"share":0},{"id":588,"offset":0,"share":0},{"id":593,"offset":0,"share":100},{"id":600,"offset":0,"share":100},{"id":603,"offset":0,"share":0},{"id":604,"offset":0,"share":100},{"id":605,"offset":0,"share":100},{"id":614,"offset":0,"share":100},{"id":618,"offset":0,"share":100},{"id":621,"offset":0,"share":100},{"id":622,"offset":0,"share":100},{"id":625,"offset":0,"share":100},{"id":626,"offset":0,"share":100},{"id":629,"offset":0,"share":100},{"id":630,"offset":0,"share":100},{"id":643,"offset":0,"share":50},{"id":653,"offset":0,"share":100},{"id":655,"offset":0,"share":100},{"id":671,"offset":0,"share":100},{"id":672,"offset":0,"share":100}],"settings":[{"id":0,"value":"VRR1TASCLT*|odsp35*|VNBP101*|*\\Abby|*\\moeuser|moeuser|*\\drxaccount|drxaccount|*\\TASClient|TASClient|PYXIDIS\\pulsar|PYXIDIS\\tank|LocalAdminUser|AdminUAC|*\\cloudtest|cloudtest|NTDEV\\ntlab"},{"id":1,"value":"0x8004de25|0x0000de2a|0x8004de40|0x8004de42|0x8004de43|0x8004de44|0x8004de85|0x8004de8b|0x8004deb2|0x8004deb6|0x8004dea0|0x8004deaa|0x8004deac|0x8004deae|0x8004deaf|0x8004dea3|0x8004dea9"},{"id":10,"value":"0"},{"id":109,"value":"350000"},{"id":11,"value":"desktop.ini|thumbs.db|Microsoft Edge.lnk"},{"id":14,"value":"600 "},{"id":15,"value":"604800"},{"id":16,"value":"|one|onepkg|onetoc|onetoc2|"},{"id":17,"value":"|doc|docm|docx|odt|odp|pps|ppsm|ppsx|ppt|pptm|pptx|vsd|vsdx|ods|xls|xlsb|xlsm|xlsx|"},{"id":18,"value":"|pst|"},{"id":19,"value":"10240"},{"id":2,"value":"0x8004de40|0x8004de42|0x8004de85|0x8004de8b|0x8004deb6|0x8004de9b|0x8004ded0|0x8004ded2|0x8004de45"},{"id":20,"value":"133120"},{"id":22,"value":"minCountForConsideration:6"},{"id":23,"value":"1440"},{"id":24,"value":"4"},{"id":25,"value":"15"},{"id":26,"value":"100"},{"id":30,"value":"30"},{"id":36,"value":"40"},{"id":37,"value":"4096"},{"id":38,"value":"10240"},{"id":39,"value":"4096"},{"id":4,"value":"MSASCui.exe,1.1.14202.0,0,100|WSCStub.exe,22.11.0.40,0,100|Mcupdate.exe,16.5.144.0,0,100|shstat.exe,8.8.0.1906,0,100|fsavwsch.exe,11.0.23410.0,0,100|BullGuard.exe,18.0.0.167,0,100|wscfix.exe,22.0.14.171,0,100|wsc_proxy.exe,17.9.3748.0,0,100|MBAMWsc.exe,3.0.0.143,0,100|Pccntmon.exe,13.0.0.4253,0,100|wschandler.exe,12.0.0.1153,0,100|WRSA.exe,9.0.19.43,0,100|cawsc2.exe,10.3.0.726,0,100"},{"id":40,"value":"133120"},{"id":41,"value":"|pst|"},{"id":42,"value":"|pst|"},{"id":43,"value":"|one|onepkg|onetoc|onetoc2|"},{"id":45,"value":"200"},{"id":46,"value":"18.168.0820.0001"},{"id":47,"value":"18.168.0820.0001"},{"id":48,"value":"100"},{"id":49,"value":"1534956090"},{"id":5,"value":"0"},{"id":51,"value":"1440 "},{"id":52,"value":"1440 "},{"id":53,"value":"2 "},{"id":57,"value":"200 "},{"id":58,"value":"64"},{"id":59,"value":"64"},{"id":60,"value":"604800"},{"id":61,"value":"500000"},{"id":62,"value":"403"},{"id":65,"value":"200"},{"id":66,"value":"60 "},{"id":67,"value":"60 "},{"id":68,"value":"CONVERGENCE:2;ASRT:2;DBRESET:2;STALLS:2;RFERROR:2;PSTALL:2;BLOCKAGE:2;HYDCOMPLETE:2;ExpectedThrottling:1;UnexpectedThrottling:2;THUMBNAIL:2;UXAUDITOR:2;SIGNIN:2;SETUP:2;FileSyncErrors:1;BLOCKAGE_v2:2"},{"id":69,"value":"401Retry|OfficeConversion_NotSupported|BadArgument_CantGenerateThumbnail|FileTooLarge|OfficeConversion_RegionNotSupported|503Retry"},{"id":7,"value":"0x80080300|0x80070102|0x800704cf|0x00000102|0x80070002|0xcaa20005|0xcaa20008"},{"id":70,"value":"400 "},{"id":71,"value":"120 "},{"id":78,"value":"1800"},{"id":79,"value":"30"},{"id":80,"value":"259200"},{"id":81,"value":"10"},{"id":82,"value":"3600"},{"id":83,"value":"21600"},{"id":84,"value":"99.999.9999.999"},{"id":85,"value":""},{"id":86,"value":"5 "},{"id":87,"value":"10 "},{"id":88,"value":"Antler"},{"id":89,"value":"86400 "},{"id":90,"value":"2 "},{"id":91,"value":"10000 "},{"id":92,"value":"{\u000a  \"version\": 1,\u000a  \"views\": [\u000a    {\u000a      \"label\": \"Staging\",\u000a      \"errors\": [\u000a        { \"ticker\": \"CONVERGENCE\", \"weight\": 4, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"ASRT\", \"weight\": 10, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"DBRESET\", \"weight\": 6, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"STALLS\", \"weight\": 4, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"RFERROR\", \"weight\": 8, \"subsets\": [ \"SCD\" ] },\u000a        {\u000a          \"ticker\": \"PSTALL\",\u000a          \"weight\": 2,\u000a          \"children\": [\u000a            { \"ticker\": \"PSTALL_UNRCVRBL\", \"weight\": 4, \"subsets\": [ \"SCD\" ] },\u000a            { \"ticker\": \"PSTALL_RCVRBL\", \"weight\": 3 },\u000a            { \"ticker\": \"PSTALL_CHND\", \"weight\": 0 }\u000a          ]\u000a        },\u000a        {\u000a          \"ticker\": \"BLOCKAGE\", \u000a          \"weight\": 0, \u000a          \"children\": [\u000a            { \"ticker\": \"BLOCKAGE_v2\", \"weight\": 4, \"subsets\": [ \"SCD\" ] }\u000a          ]\u000a        },\u000a        { \"ticker\": \"HYDCOMPLETE\", \"weight\": 5, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"ExpectedThrottling\", \"weight\": 1 },\u000a        { \"ticker\": \"UnexpectedThrottling\", \"weight\": 2, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"THUMBNAIL\", \"weight\": 1, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"UXAUDITOR\", \"weight\": 2, \"subsets\": [ \"SCD\" ] },\u000a        { \"ticker\": \"SIGNIN\", \"weight\": 10, \"subsets\": [ \"SCD\" ]
+/**
+ * \file
+ *
+ * \brief Chip-specific system clock management functions.
+ *
+ * Copyright (c) 2015 Atmel Corporation. All rights reserved.
+ *
+ * \asf_license_start
+ *
+ * \page License
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * 3. The name of Atmel may not be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * 4. This software may only be redistributed and used in connection with an
+ *    Atmel microcontroller product.
+ *
+ * THIS SOFTWARE IS PROVIDED BY ATMEL "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE
+ * EXPRESSLY AND SPECIFICALLY DISCLAIMED. IN NO EVENT SHALL ATMEL BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * \asf_license_stop
+ *
+ */
+/*
+ * Support and FAQ: visit <a href="http://www.atmel.com/design-support/">Atmel Support</a>
+ */
+
+#ifndef CHIP_SYSCLK_H_INCLUDED
+#define CHIP_SYSCLK_H_INCLUDED
+
+#include <osc.h>
+#include <pll.h>
+
+/**
+ * \page sysclk_quickstart Quick Start Guide for the System Clock Management
+ * service (SAMV71)
+ *
+ * This is the quick start guide for the \ref sysclk_group "System Clock
+ * Management" service, with step-by-step instructions on how to configure and
+ * use the service for specific use cases.
+ *
+ * \section sysclk_quickstart_usecases System Clock Management use cases
+ * - \ref sysclk_quickstart_basic
+ * - \ref sysclk_quickstart_use_case_2
+ *
+ * \section sysclk_quickstart_basic Basic usage of the System Clock Management
+ * service
+ * This section will present a basic use case for the System Clock Management
+ * service. This use case will configure the main system clock to 120MHz,
+ * using an internal PLL module to multiply the frequency of a crystal attached
+ * to the microcontroller.
+ *
+ * \subsection sysclk_quickstart_use_case_1_prereq Prerequisites
+ *  - None
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps Initialization code
+ * Add to the application initialization code:
+ * \code
+	sysclk_init();
+\endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps_workflow Workflow
+ * -# Configure the system clocks according to the settings in conf_clock.h:
+ *    \code sysclk_init(); \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_code Example code
+ *   Add or uncomment the following in your conf_clock.h header file,
+ *   commenting out all other definitions of the same symbol(s):
+ *   \code
+	   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLACK
+
+	   // Fpll0 = (Fclk * PLL_mul) / PLL_div
+	   #define CONFIG_PLL0_SOURCE          PLL_SRC_MAINCK_XTAL
+	   #define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_MAINCK_XTAL)
+	   #define CONFIG_PLL0_DIV             1
+
+	   // Fbus = Fsys / BUS_div
+	   #define CONFIG_SYSCLK_PRES          SYSCLK_PRES_1
+\endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_workflow Workflow
+ *  -# Configure the main system clock to use the output of the PLL module as
+ *     its source:
+ *   \code #define CONFIG_SYSCLK_SOURCE          SYSCLK_SRC_PLLACK \endcode
+ *  -# Configure the PLL module to use the fast external fast crystal
+ *     oscillator as its source:
+ *   \code #define CONFIG_PLL0_SOURCE            PLL_SRC_MAINCK_XTAL \endcode
+ *  -# Configure the PLL module to multiply the external fast crystal
+ *     oscillator frequency up to 120MHz:
+ *   \code
+	#define CONFIG_PLL0_MUL             (120000000UL / BOARD_FREQ_MAINCK_XTAL)
+	#define CONFIG_PLL0_DIV             1
+\endcode
+ *   \note For user boards, \c BOARD_FREQ_MAINCK_XTAL should be defined in the
+ *   board \c conf_board.h configuration
+ *         file as the frequency of the fast crystal attached to the microcontroller.
+ *  -# Configure the main clock to run at the full 120MHz, disable scaling of
+ *     the main system clock speed:
+ *    \code
+	#define CONFIG_SYSCLK_PRES         SYSCLK_PRES_1
+\endcode
+ *    \note Some dividers are powers of two, while others are integer division
+ *    factors. Refer to the formulas in the conf_clock.h template commented
+ *    above each division define.
+ */
+
+/**
+ * \page sysclk_quickstart_use_case_2 Advanced use case - Peripheral Bus Clock
+ * Management (SAMV71)
+ *
+ * \section sysclk_quickstart_use_case_2 Advanced use case - Peripheral Bus
+ * Clock Management
+ * This section will present a more advanced use case for the System Clock
+ * Management service. This use case will configure the main system clock to
+ * 96MHz, using an internal PLL module to multiply the frequency of a crystal
+ * attached to the microcontroller. The USB clock will be configured via the
+ * same PLL module.
+ *
+ * \subsection sysclk_quickstart_use_case_2_prereq Prerequisites
+ *  - None
+ *
+ * \subsection sysclk_quickstart_use_case_2_setup_steps Initialization code
+ * Add to the application initialization code:
+ * \code
+	sysclk_init();
+\endcode
+ *
+ * \subsection sysclk_quickstart_use_case_2_setup_steps_workflow Workflow
+ * -# Configure the system clocks according to the settings in conf_clock.h:
+ *    \code sysclk_init(); \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_2_example_code Example code
+ *   Add or uncomment the following in your conf_clock.h header file,
+ *   commenting out all other definitions of the same symbol(s):
+ *   \code
+	   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLACK
+
+	   // Fpll0 = (Fclk * PLL_mul) / PLL_div
+	   #define CONFIG_PLL0_SOURCE          PLL_SRC_MAINCK_XTAL
+	   #define CONFIG_PLL0_MUL             (96000000UL / BOARD_FREQ_MAINCK_XTAL)
+	   #define CONFIG_PLL0_DIV             1
+
+	   // Fbus = Fsys / BUS_div
+	   #define CONFIG_SYSCLK_PRES          SYSCLK_PRES_1
+
+	   // Fusb = Fsys / USB_div
+	   #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL0
+	   #define CONFIG_USBCLK_DIV           2
+\endcode
+ *
+ * \subsection sysclk_quickstart_use_case_2_example_workflow Workflow
+ *  -# Configure the main system clock to use the output of the PLL0 module as
+ *     its source:
+ *   \code #define CONFIG_SYSCLK_SOURCE          SYSCLK_SRC_PLLACK \endcode
+ *  -# Configure the PLL0 module to use the fast external fast crystal
+ *     oscillator as its source:
+ *   \code #define CONFIG_PLL0_SOURCE            PLL_SRC_MAINCK_XTAL \endcode
+ *  -# Configure the PLL0 module to multiply the external fast crystal
+ *     oscillator frequency up to 96MHz:
+ *   \code
+	#define CONFIG_PLL0_MUL             (96000000UL / BOARD_FREQ_MAINCK_XTAL)
+	#define CONFIG_PLL0_DIV             1
+\endcode
+ *   \note For user boards, \c BOARD_FREQ_MAINCK_XTAL should be defined in the
+ *   board \c conf_board.h configuration file as the frequency of the fast
+ *   crystal attached to the microcontroller.
+ *  -# Configure the main clock to run at the full 96MHz, disable scaling of
+ *     the main system clock speed:
+ *    \code
+	#define CONFIG_SYSCLK_PRES         SYSCLK_PRES_1
+\endcode
+ *    \note Some dividers are powers of two, while others are integer division
+ *    factors. Refer to the formulas in the conf_clock.h template commented
+ *    above each division define.
+ *  -# Configure the USB module clock to use the output of the PLL0 module as
+ *     its source with division 2:
+ *   \code
+	#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL0
+	#define CONFIG_USBCLK_DIV           2
+\endcode
+ */
+
+/// @cond 0
+/**INDENT-OFF**/
+#ifdef __cplusplus
+extern "C" {
+#endif
+/**INDENT-ON**/
+/// @endcond
+
+/**
+ * \weakgroup sysclk_group
+ * @{
+ */
+
+//! \name Configuration Symbols
+//@{
+/**
+ * \def CONFIG_SYSCLK_SOURCE
+ * \brief Initial/static main system clock source
+ *
+ * The main system clock will be configured to use this clock during
+ * initialization.
+ */
+#ifndef CONFIG_SYSCLK_SOURCE
+# define CONFIG_SYSCLK_SOURCE   SYSCLK_SRC_MAINCK_4M_RC
+#endif
+/**
+ * \def CONFIG_SYSCLK_PRES
+ * \brief Initial CPU clock divider (mck)
+ *
+ * The MCK will run at
+ * \f[
+ *   f_{MCK} = \frac{f_{sys}}{\mathrm{CONFIG\_SYSCLK\_PRES}}\,\mbox{Hz}
+ * \f]
+ * after initialization.
+ */
+#ifndef CONFIG_SYSCLK_PRES
+# define CONFIG_SYSCLK_PRES  0
+#endif
+
+//@}
+
+//! \name Master Clock Sources (MCK)
+//@{
+#define SYSCLK_SRC_SLCK_RC         0 //!< Internal 32kHz RC oscillator as master source clock
+#define SYSCLK_SRC_SLCK_XTAL       1 //!< External 32kHz crystal oscillator as master source clock
+#define SYSCLK_SRC_SLCK_BYPASS     2 //!< External 32kHz bypass oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_4M_RC    3 //!< Internal 4MHz RC oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_8M_RC    4 //!< Internal 8MHz RC oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_12M_RC   5 //!< Internal 12MHz RC oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_XTAL     6 //!< External crystal oscillator as master source clock
+#define SYSCLK_SRC_MAINCK_BYPASS   7 //!< External bypass oscillator as master source clock
+#define SYSCLK_SRC_PLLACK          8 //!< Use PLLACK as master source clock
+#define SYSCLK_SRC_UPLLCK          9       //!< Use UPLLCK as master source clock
+//@}
+
+//! \name Master Clock Prescalers (MCK)
+//@{
+#define SYSCLK_PRES_1   PMC_MCKR_PRES_CLK_1  //!< Set master clock prescaler to 1
+#define SYSCLK_PRES_2   PMC_MCKR_PRES_CLK_2  //!< Set master clock prescaler to 2
+#define SYSCLK_PRES_4   PMC_MCKR_PRES_CLK_4  //!< Set master clock prescaler to 4
+#define SYSCLK_PRES_8   PMC_MCKR_PRES_CLK_8  //!< Set master clock prescaler to 8
+#define SYSCLK_PRES_16  PMC_MCKR_PRES_CLK_16 //!< Set master clock prescaler to 16
+#define SYSCLK_PRES_32  PMC_MCKR_PRES_CLK_32 //!< Set master clock prescaler to 32
+#define SYSCLK_PRES_64  PMC_MCKR_PRES_CLK_64 //!< Set master clock prescaler to 64
+#define SYSCLK_PRES_3   PMC_MCKR_PRES_CLK_3  //!< Set master clock prescaler to 3
+//@}
+
+//! \name Master Clock Division (MCK)
+//@{
+#define SYSCLK_DIV_1   PMC_MCKR_MDIV_EQ_PCK  //!< Set master clock division to 1
+#define SYSCLK_DIV_2   PMC_MCKR_MDIV_PCK_DIV2  //!< Set master clock division to 2
+#define SYSCLK_DIV_4   PMC_MCKR_MDIV_PCK_DIV4  //!< Set master clock division to 4
+#define SYSCLK_DIV_3   PMC_MCKR_MDIV_PCK_DIV3  //!< Set master clock division to 3
+//@}
+
+//! \name USB Clock Sources
+//@{
+#define USBCLK_SRC_PLL0       0     //!< Use PLLA
+#define USBCLK_SRC_UPLL       1     //!< Use UPLL
+//@}
+
+/**
+ * \def CONFIG_USBCLK_SOURCE
+ * \brief Configuration symbol for the USB generic clock source
+ *
+ * Sets the clock source to use for the USB. The source must also be properly
+ * configured.
+ *
+ * Define this to one of the \c USBCLK_SRC_xxx settings. Leave it undefined if
+ * USB is not required.
+ */
+#ifdef __DOXYGEN__
+# define CONFIG_USBCLK_SOURCE
+#endif
+
+/**
+ * \def CONFIG_USBCLK_DIV
+ * \brief Configuration symbol for the USB generic clock divider setting
+ *
+ * Sets the clock division for the USB generic clock. If a USB clock source is
+ * selected with CONFIG_USBCLK_SOURCE, this configuration symbol must also be
+ * defined.
+ */
+#ifdef __DOXYGEN__
+# define CONFIG_USBCLK_DIV
+#endif
+
+/**
+ * \name Querying the system clock
+ *
+ * The following functions may be used to query the current frequency of
+ * the system clock and the CPU and bus clocks derived from it.
+ * sysclk_get_main_hz() and sysclk_get_cpu_hz() can be assumed to be
+ * available on all platforms, although some platforms may define
+ * additional accessors for various chip-internal bus clocks. These are
+ * usually not intended to be queried directly by generic code.
+ */
+//@{
+
+/**
+ * \brief Return the current rate in Hz of the main system clock
+ *
+ * \todo This function assumes that the main clock source never changes
+ * once it's been set up, and that PLL0 always runs at the compile-time
+ * configured default rate. While this is probably the most common
+ * configuration, which we want to support as a special case for
+ * performance reasons, we will at some point need to support more
+ * dynamic setups as well.
+ */
+#if (defined CONFIG_SYSCLK_DEFAULT_RETURNS_SLOW_OSC)
+extern uint32_t sysclk_initialized;
+#endif
+static inline uint32_t sysclk_get_main_hz(void)
+{
+#if (defined CONFIG_SYSCLK_DEFAULT_RETURNS_SLOW_OSC)
+	if (!sysclk_initialized ) {
+		return OSC_MAINCK_4M_RC_HZ;
+	}
+#endif
+
+	/* Config system clock setting */
+	if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_SLCK_RC) {
+		return OSC_SLCK_32K_RC_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_SLCK_XTAL) {
+		return OSC_SLCK_32K_XTAL_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_SLCK_BYPASS) {
+		return OSC_SLCK_32K_BYPASS_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_4M_RC) {
+		return OSC_MAINCK_4M_RC_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_8M_RC) {
+		return OSC_MAINCK_8M_RC_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_12M_RC) {
+		return OSC_MAINCK_12M_RC_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_XTAL) {
+		return OSC_MAINCK_XTAL_HZ;
+	} else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_MAINCK_BYPASS) {
+		return OSC_MAINCK_BYPASS_HZ;
+	}
+#ifdef CONFIG_PLL0_SOURCE
+	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_PLLACK) {
+		return pll_get_default_rate(0);
+	}
+#endif
+
+#ifdef CONFIG_PLL1_SOURCE
+	else if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_UPLLCK) {
+		return PLL_UPLL_HZ;
+	}
+#endif
+	else {
+		/* unhandled_case(CONFIG_SYSCLK_SOURCE); */
+		return 0;
+	}
+}
+
+/**
+ * \brief Return the current rate in Hz of the CPU clock
+ *
+ * \todo This function assumes that the CPU always runs at the system
+ * clock frequency. We want to support at least two more scenarios:
+ * Fixed CPU/bus clock dividers (config symbols) and dynamic CPU/bus
+ * clock dividers (which may change at run time). Ditto for all the bus
+ * clocks.
+ *
+ * \return Frequency of the CPU clock, in Hz.
+ */
+static inline uint32_t sysclk_get_cpu_hz(void)
+{
+	/* CONFIG_SYSCLK_PRES is the register value for setting the expected */
+	/* prescaler, not an immediate value. */
+	return sysclk_get_main_hz() /
+		((CONFIG_SYSCLK_PRES == SYSCLK_PRES_3) ? 3 :
+			(1 << (CONFIG_SYSCLK_PRES >> PMC_MCKR_PRES_Pos)));
+}
+
+/**
+ * \brief Retrieves the current rate in Hz of the peripheral clocks.
+ *
+ * \return Frequency of the peripheral clocks, in Hz.
+ */
+static inline uint32_t sysclk_get_peripheral_hz(void)
+{
+	/* CONFIG_SYSCLK_PRES is the register value for setting the expected */
+	/* prescaler, not an immediate value. */
+	return sysclk_get_main_hz() /
+		(((CONFIG_SYSCLK_PRES == SYSCLK_PRES_3) ? 3 : (1 << (CONFIG_SYSCLK_PRES >> PMC_MCKR_PRES_Pos))) * CONFIG_SYSCLK_DIV);
+}
+
+/**
+ * \brief Retrieves the current rate in Hz of the Peripheral Bus clock attached
+ *        to the specified peripheral.
+ *
+ * \param module Pointer to the module's base address.
+ *
+ * \return Frequency of the bus attached to the specified peripheral, in Hz.
+ */
+static inline uint32_t sysclk_get_peripheral_bus_hz(const volatile void *module)
+{
+	UNUSED(module);
+	return sysclk_get_peripheral_hz();
+}
+//@}
+
+//! \name Enabling and disabling synchronous clocks
+//@{
+
+/**
+ * \brief Enable a peripheral's clock.
+ *
+ * \param ul_id Id (number) of the peripheral clock.
+ */
+static inline void sysclk_enable_peripheral_clock(uint32_t ul_id)
+{
+	pmc_enable_periph_clk(ul_id);
+}
+
+/**
+ * \brief Disable a peripheral's clock.
+ *
+ * \param ul_id Id (number) of the peripheral clock.
+ */
+static inline void sysclk_disable_peripheral_clock(uint32_t ul_id)
+{
+	pmc_disable_periph_clk(ul_id);
+}
+
+//@}
+
+//! \name System Clock Source and Prescaler configuration
+//@{
+
+extern void sysclk_set_prescalers(uint32_t ul_pres);
+extern void sysclk_set_source(uint32_t ul_src);
+
+//@}
+
+extern void sysclk_enable_usb(void);
+extern void sysclk_disable_usb(void);
+
+extern void sysclk_init(void);
+
+//! @}
+
+/// @cond 0
+/**INDENT-OFF**/
+#ifdef __cplusplus
+}
+#endif
+/**INDENT-ON**/
+/// @endcond
+
+#endif /* CHIP_SYSCLK_H_INCLUDED */
