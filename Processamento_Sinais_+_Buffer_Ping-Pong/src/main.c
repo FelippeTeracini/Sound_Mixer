@@ -40,9 +40,9 @@
 #define AFEC_CHANNEL_PIN 0
 //afec 1 | channel 1 = PC13
 #define AFEC_CHANNEL_PIN_GAIN 1
-//afec 1 | channel 5 = PC30
-#define AFEC_CHANNEL_PIN_SATURATION 3
 //afec 1 | channel 3 = PC12
+#define AFEC_CHANNEL_PIN_SATURATION 3
+//afec 1 | channel 5 = PC30
 #define AFEC_CHANNEL_PIN_LOWPASS 5
 
 //! DAC channel used for test
@@ -64,11 +64,23 @@
 #define BUTECHO_IDX  31
 #define BUTECHO_IDX_MASK (1 << BUTECHO_IDX)
 
-// Botao3
-#define BUT3_PIO      PIOA
-#define BUT3_PIO_ID   10
-#define BUT3_IDX  19
-#define BUT3_IDX_MASK (1 << BUT3_IDX)
+// Botao Gain
+#define BUTGAIN_PIO      PIOA
+#define BUTGAIN_PIO_ID   10
+#define BUTGAIN_IDX  19
+#define BUTGAIN_IDX_MASK (1 << BUTGAIN_IDX)
+
+// Botao Saturation
+#define BUTSAT_PIO      PIOA
+#define BUTSAT_PIO_ID   10
+#define BUTSAT_IDX  3
+#define BUTSAT_IDX_MASK (1 << BUTSAT_IDX)
+
+// Botao Lowpass
+#define BUTLOWPASS_PIO      PIOA
+#define BUTLOWPASS_PIO_ID   10
+#define BUTLOWPASS_IDX  4
+#define BUTLOWPASS_IDX_MASK (1 << BUTLOWPASS_IDX)
 
 // LED Reverb
 #define LEDREVERB_PIO      PIOA
@@ -81,6 +93,24 @@
 #define LEDECHO_PIO_ID   11
 #define LEDECHO_IDX  2
 #define LEDECHO_IDX_MASK (1 << LEDECHO_IDX)
+
+// LED Gain
+#define LEDGAIN_PIO      PIOB
+#define LEDGAIN_PIO_ID   11
+#define LEDGAIN_IDX  3
+#define LEDGAIN_IDX_MASK (1 << LEDGAIN_IDX)
+
+// LED Saturation
+#define LEDSAT_PIO      PIOB
+#define LEDSAT_PIO_ID   11
+#define LEDSAT_IDX  1
+#define LEDSAT_IDX_MASK (1 << LEDSAT_IDX)
+
+// LED Lowpass
+#define LEDLOWPASS_PIO      PIOC
+#define LEDLOWPASS_PIO_ID   12
+#define LEDLOWPASS_IDX  17
+#define LEDLOWPASS_IDX_MASK (1 << LEDLOWPASS_IDX)
 
 
 /** RTOS  */
@@ -103,6 +133,9 @@ xQueueHandle xQueueEffects;
 
 xSemaphoreHandle xSemaphoreReverb;
 xSemaphoreHandle xSemaphoreEcho;
+xSemaphoreHandle xSemaphoreGain;
+xSemaphoreHandle xSemaphoreSat;
+xSemaphoreHandle xSemaphoreLowpass;
 
 typedef struct {
 	int gain;
@@ -222,6 +255,9 @@ volatile int ground = 400;
 
 volatile char reverb_on = 0;
 volatile char echo_on = 0;
+volatile char gain_on = 0;
+volatile char sat_on = 0;
+volatile char lowpass_on = 0;
 
 old_buffer_t old_buffer;
 
@@ -319,9 +355,12 @@ static void AFEC_Audio_callback(void){
 		echo();
 	if (reverb_on)
 		reverb();
-	Saturation(saturation_value);
-	Gain(gain_value);
-	lowPassFrequency(lowpass_value);
+	if (sat_on)
+		Saturation(saturation_value);
+	if (lowpass_on)
+		lowPassFrequency(lowpass_value);
+	if (gain_on)
+		Gain(gain_value);
 	
 	
 	count += g_ul_value;
@@ -383,19 +422,29 @@ static void AFEC_Lowpass_callback(void){
 	xQueueSendFromISR( xQueueLowpass, &lowpass, NULL);
 }
 
-void but1_callback(void)
+void butReverb_callback(void)
 {
 	xSemaphoreGiveFromISR(xSemaphoreReverb, 4);
 }
 
-void but2_callback(void)
+void butEcho_callback(void)
 {
 	xSemaphoreGiveFromISR(xSemaphoreEcho, 4);
 }
 
-void but3_callback(void)
+void butGain_callback(void)
 {
-	
+	xSemaphoreGiveFromISR(xSemaphoreGain, 4);
+}
+
+void butSat_callback(void)
+{
+	xSemaphoreGiveFromISR(xSemaphoreSat, 4);
+}
+
+void butLowpass_callback(void)
+{
+	xSemaphoreGiveFromISR(xSemaphoreLowpass, 4);
 }
 /************************************************************************/
 /* Funcoes                                                              */
@@ -566,26 +615,34 @@ void button_init(void)
 	// Inicializa clock do perif�rico PIO responsavel pelo botao
 	pmc_enable_periph_clk(BUTREVERB_PIO_ID);
 	pmc_enable_periph_clk(BUTECHO_PIO_ID);
-	pmc_enable_periph_clk(BUT3_PIO_ID);
+	pmc_enable_periph_clk(BUTGAIN_PIO_ID);
+	pmc_enable_periph_clk(BUTSAT_PIO_ID);
+	pmc_enable_periph_clk(BUTLOWPASS_PIO_ID);
 
 	// Configura PIO para lidar com o pino do bot�o como entrada
 	// com pull-up
 	pio_configure(BUTREVERB_PIO, PIO_INPUT, BUTREVERB_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
 	pio_configure(BUTECHO_PIO, PIO_INPUT, BUTECHO_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
-	pio_configure(BUT3_PIO, PIO_INPUT, BUT3_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
+	pio_configure(BUTGAIN_PIO, PIO_INPUT, BUTGAIN_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
+	pio_configure(BUTSAT_PIO, PIO_INPUT,BUTSAT_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
+	pio_configure(BUTLOWPASS_PIO, PIO_INPUT, BUTLOWPASS_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
 
 	// Configura interrup��o no pino referente ao botao e associa
 	// fun��o de callback caso uma interrup��o for gerada
 	// a fun��o de callback � a: but_callback()
-	pio_handler_set(BUTREVERB_PIO, BUTREVERB_PIO_ID, BUTREVERB_IDX_MASK, PIO_IT_FALL_EDGE, but1_callback);
-	pio_handler_set(BUTECHO_PIO, BUTECHO_PIO_ID, BUTECHO_IDX_MASK, PIO_IT_FALL_EDGE, but2_callback);
-	pio_handler_set(BUT3_PIO, BUT3_PIO_ID, BUT3_IDX_MASK, PIO_IT_FALL_EDGE, but3_callback);
+	pio_handler_set(BUTREVERB_PIO, BUTREVERB_PIO_ID, BUTREVERB_IDX_MASK, PIO_IT_FALL_EDGE, butReverb_callback);
+	pio_handler_set(BUTECHO_PIO, BUTECHO_PIO_ID, BUTECHO_IDX_MASK, PIO_IT_FALL_EDGE, butEcho_callback);
+	pio_handler_set(BUTGAIN_PIO, BUTGAIN_PIO_ID, BUTGAIN_IDX_MASK, PIO_IT_FALL_EDGE, butGain_callback);
+	pio_handler_set(BUTSAT_PIO, BUTSAT_PIO_ID, BUTSAT_IDX_MASK, PIO_IT_FALL_EDGE, butSat_callback);
+	pio_handler_set(BUTLOWPASS_PIO, BUTLOWPASS_PIO_ID, BUTLOWPASS_IDX_MASK, PIO_IT_FALL_EDGE, butLowpass_callback);
 
 
 	// Ativa interrup��o
 	pio_enable_interrupt(BUTREVERB_PIO, BUTREVERB_IDX_MASK);
 	pio_enable_interrupt(BUTECHO_PIO, BUTECHO_IDX_MASK);
-	pio_enable_interrupt(BUT3_PIO, BUT3_IDX_MASK);
+	pio_enable_interrupt(BUTGAIN_PIO, BUTGAIN_IDX_MASK);
+	pio_enable_interrupt(BUTSAT_PIO, BUTSAT_IDX_MASK);
+	pio_enable_interrupt(BUTLOWPASS_PIO, BUTLOWPASS_IDX_MASK);
 
 	// Configura NVIC para receber interrupcoes do PIO do botao
 	// com prioridade 4 (quanto mais pr�ximo de 0 maior)
@@ -593,8 +650,12 @@ void button_init(void)
 	NVIC_SetPriority(BUTREVERB_PIO_ID, 4); // Prioridade 4
 	NVIC_EnableIRQ(BUTECHO_PIO_ID);
 	NVIC_SetPriority(BUTECHO_PIO_ID, 4); // Prioridade 4
-	NVIC_EnableIRQ(BUT3_PIO_ID);
-	NVIC_SetPriority(BUT3_PIO_ID, 4); // Prioridade 4
+	NVIC_EnableIRQ(BUTGAIN_PIO_ID);
+	NVIC_SetPriority(BUTGAIN_PIO_ID, 4); // Prioridade 4
+	NVIC_EnableIRQ(BUTSAT_PIO_ID);
+	NVIC_SetPriority(BUTSAT_PIO_ID, 4); // Prioridade 4
+	NVIC_EnableIRQ(BUTLOWPASS_PIO_ID);
+	NVIC_SetPriority(BUTLOWPASS_PIO_ID, 4); // Prioridade 4
 }
 
 void led_init(void)
@@ -602,9 +663,15 @@ void led_init(void)
 	// Configura led
 	pmc_enable_periph_clk(LEDREVERB_PIO_ID);
 	pmc_enable_periph_clk(LEDECHO_PIO_ID);
+	pmc_enable_periph_clk(LEDGAIN_PIO_ID);
+	pmc_enable_periph_clk(LEDSAT_PIO_ID);
+	pmc_enable_periph_clk(LEDLOWPASS_PIO_ID);
 
 	pio_configure(LEDREVERB_PIO, PIO_OUTPUT_0, LEDREVERB_IDX_MASK, PIO_DEFAULT);
 	pio_configure(LEDECHO_PIO, PIO_OUTPUT_0, LEDECHO_IDX_MASK, PIO_DEFAULT);
+	pio_configure(LEDGAIN_PIO, PIO_OUTPUT_0, LEDGAIN_IDX_MASK, PIO_DEFAULT);
+	pio_configure(LEDSAT_PIO, PIO_OUTPUT_0, LEDSAT_IDX_MASK, PIO_DEFAULT);
+	pio_configure(LEDLOWPASS_PIO, PIO_OUTPUT_0, LEDLOWPASS_IDX_MASK, PIO_DEFAULT);
 }
 
 static void task_adc_to_dac(void *pvParameters) {
@@ -612,6 +679,9 @@ static void task_adc_to_dac(void *pvParameters) {
 	xQueueEffects = xQueueCreate( 100, sizeof( effects_t ) );
 	xSemaphoreReverb = xSemaphoreCreateCounting(1, 0);
 	xSemaphoreEcho = xSemaphoreCreateCounting(1, 0);
+	xSemaphoreGain = xSemaphoreCreateCounting(1, 0);
+	xSemaphoreSat = xSemaphoreCreateCounting(1, 0);
+	xSemaphoreLowpass = xSemaphoreCreateCounting(1, 0);
 	
 	old_buffer.p = 0;
 	old_buffer.maxp = 22000;
@@ -627,8 +697,11 @@ static void task_adc_to_dac(void *pvParameters) {
 
 	led_init();
 
-	pio_clear(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
-	pio_clear(LEDECHO_PIO, LEDECHO_IDX_MASK);
+	pio_set(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
+	pio_set(LEDECHO_PIO, LEDECHO_IDX_MASK);
+	pio_set(LEDGAIN_PIO, LEDGAIN_IDX_MASK);
+	pio_set(LEDSAT_PIO, LEDSAT_IDX_MASK);
+	pio_set(LEDLOWPASS_PIO, LEDLOWPASS_IDX_MASK);
 	
 	saturation_value = 50;
 	gain_value = 70;
@@ -651,17 +724,41 @@ static void task_adc_to_dac(void *pvParameters) {
 			printf("REVERB PRESSED\n");
 			reverb_on = !reverb_on;
 			if (reverb_on)
-				pio_clear(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
-			else
 				pio_set(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
+			else
+				pio_clear(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
 		}
 		if (xSemaphoreTake( xSemaphoreEcho,  10 / portTICK_RATE_MS)) {
 			printf("ECHO PRESSED\n");
 			echo_on = !echo_on;
 			if (echo_on)
-				pio_clear(LEDECHO_PIO, LEDECHO_IDX_MASK);
-			else
 				pio_set(LEDECHO_PIO, LEDECHO_IDX_MASK);
+			else
+				pio_clear(LEDECHO_PIO, LEDECHO_IDX_MASK);
+		}
+		if (xSemaphoreTake( xSemaphoreGain,  10 / portTICK_RATE_MS)) {
+			printf("GAIN PRESSED\n");
+			gain_on = !gain_on;
+			if (gain_on)
+				pio_set(LEDGAIN_PIO, LEDGAIN_IDX_MASK);
+			else
+				pio_clear(LEDGAIN_PIO, LEDGAIN_IDX_MASK);
+		}
+		if (xSemaphoreTake( xSemaphoreSat,  10 / portTICK_RATE_MS)) {
+			printf("SATURATION PRESSED\n");
+			sat_on = !sat_on;
+			if (sat_on)
+				pio_set(LEDSAT_PIO, LEDSAT_IDX_MASK);
+			else
+				pio_clear(LEDSAT_PIO, LEDSAT_IDX_MASK);
+		}
+		if (xSemaphoreTake( xSemaphoreLowpass,  10 / portTICK_RATE_MS)) {
+			printf("LOWPASS PRESSED\n");
+			lowpass_on = !lowpass_on;
+			if (lowpass_on)
+				pio_set(LEDLOWPASS_PIO, LEDLOWPASS_IDX_MASK);
+			else
+				pio_clear(LEDLOWPASS_PIO, LEDLOWPASS_IDX_MASK);
 		}
 	}
 }
@@ -689,8 +786,6 @@ void task_effects_controller(void) {
 
 	afec_start_software_conversion(AFEC1);
 
-// 	printf("Teste: %d\n", gain);
-	
 	while(1) {
 		if (xQueueReceive( xQueueGain, &(gain),  10 / portTICK_RATE_MS)) {
 			printf("Gain: %d\n", gain);
