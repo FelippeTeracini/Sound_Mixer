@@ -52,6 +52,37 @@
 //! DAC ID for test
 #define DACC_ID             ID_DACC
 
+// Botao Reverb
+#define BUTREVERB_PIO      PIOD
+#define BUTREVERB_PIO_ID   16
+#define BUTREVERB_IDX  28
+#define BUTREVERB_IDX_MASK (1 << BUTREVERB_IDX)
+
+// Botao Echo
+#define BUTECHO_PIO      PIOC
+#define BUTECHO_PIO_ID   12
+#define BUTECHO_IDX  31
+#define BUTECHO_IDX_MASK (1 << BUTECHO_IDX)
+
+// Botao3
+#define BUT3_PIO      PIOA
+#define BUT3_PIO_ID   10
+#define BUT3_IDX  19
+#define BUT3_IDX_MASK (1 << BUT3_IDX)
+
+// LED Reverb
+#define LEDREVERB_PIO      PIOA
+#define LEDREVERB_PIO_ID   10
+#define LEDREVERB_IDX  0
+#define LEDREVERB_IDX_MASK (1 << LEDREVERB_IDX)
+
+// LED Echo
+#define LEDECHO_PIO      PIOB
+#define LEDECHO_PIO_ID   11
+#define LEDECHO_IDX  2
+#define LEDECHO_IDX_MASK (1 << LEDECHO_IDX)
+
+
 /** RTOS  */
 #define TASK_TRIGGER_STACK_SIZE            (1024/sizeof(portSTACK_TYPE))
 #define TASK_TRIGGER_STACK_PRIORITY        (tskIDLE_PRIORITY)
@@ -70,6 +101,9 @@ xQueueHandle xQueueLowpass;
 
 xQueueHandle xQueueEffects;
 
+xSemaphoreHandle xSemaphoreReverb;
+xSemaphoreHandle xSemaphoreEcho;
+
 typedef struct {
 	int gain;
 	int saturation;
@@ -77,10 +111,10 @@ typedef struct {
 } effects_t;
 
 typedef struct {
-	int values[11000];
+	int values[22000];
 	int p;
 	int maxp;
-} reverb_buffer_t;
+} old_buffer_t;
 
 /************************************************************************/
 /*        definir funcs                                                 */
@@ -169,7 +203,7 @@ void TC0_Handler(void){
  */
 
 // BUFFER SIZE
-PPBUF_DECLARE(buffer,100);
+PPBUF_DECLARE(buffer,1000);
 volatile uint32_t buf = 0;
 
 uint32_t corte_filtro = 4000;
@@ -186,7 +220,10 @@ volatile int lowpass_value = 10000;
 volatile int count = 0;
 volatile int ground = 400;
 
-reverb_buffer_t reverb_buffer;
+volatile char reverb_on = 0;
+volatile char echo_on = 0;
+
+old_buffer_t old_buffer;
 
 static void Softning(){
 	temp = g_ul_value;
@@ -238,13 +275,28 @@ static void lowPassFrequency(int CUTOFF)
 	g_ul_value = (int) ((double) past + (alpha*((double) current - (double) past)) + ground);
 }
 
-static void reverb(int value) {
-	double max_value = 100;
+static void reverb(void) {
+	double normal_value = (g_ul_value - ground);
+
+	g_ul_value = (int) (normal_value/3 +
+		/*old_buffer.values[(old_buffer.p + (old_buffer.maxp/2))%old_buffer.maxp]*(((double) value)/ (max_value*3)) + */
+		(old_buffer.values[(old_buffer.p + (old_buffer.maxp/2))%old_buffer.maxp] + 
+		old_buffer.values[(old_buffer.p + (old_buffer.maxp/4))%old_buffer.maxp])*0.1666 +
+		(old_buffer.values[(old_buffer.p + (old_buffer.maxp/8))%old_buffer.maxp] +
+		old_buffer.values[(old_buffer.p + (old_buffer.maxp/16))%old_buffer.maxp])*0.0833 +
+		(old_buffer.values[(old_buffer.p + (old_buffer.maxp/32))%old_buffer.maxp] +
+		old_buffer.values[(old_buffer.p + (old_buffer.maxp/64))%old_buffer.maxp] +
+		old_buffer.values[(old_buffer.p + (old_buffer.maxp/128))%old_buffer.maxp] +
+		old_buffer.values[(old_buffer.p + (old_buffer.maxp/256))%old_buffer.maxp])*0.0416 +
+		ground);
+
+}
+
+static void echo(void) {
 	double normal_value = (g_ul_value - ground);
 	
-	g_ul_value = (int) (normal_value +
-		reverb_buffer.values[reverb_buffer.p]*(((double) value)/ (max_value*2)) + 
-// 		reverb_buffer.values[reverb_buffer.p]*(((double) value)/ (max_value*4)) + 
+	g_ul_value = (int) (normal_value*2/3 +
+		old_buffer.values[old_buffer.p%old_buffer.maxp]*0.333 +
 		ground);
 
 }
@@ -263,7 +315,10 @@ static void AFEC_Audio_callback(void){
 	g_ul_value = afec_channel_get_value(AFEC0, AFEC_CHANNEL_PIN);
 	
 	/*        EFFECTS        */
-	reverb(100);
+	if (echo_on)
+		echo();
+	if (reverb_on)
+		reverb();
 	Saturation(saturation_value);
 	Gain(gain_value);
 	lowPassFrequency(lowpass_value);
@@ -271,12 +326,12 @@ static void AFEC_Audio_callback(void){
 	
 	count += g_ul_value;
 	g_ul_value_old = g_ul_value;
-	if (reverb_buffer.p < reverb_buffer.maxp) {
-		reverb_buffer.values[reverb_buffer.p] = g_ul_value;
-		reverb_buffer.p += 1;
+	if (old_buffer.p < old_buffer.maxp) {
+		old_buffer.values[old_buffer.p] = g_ul_value - ground;
+		old_buffer.p += 1;
 	} else {
-		reverb_buffer.values[reverb_buffer.p] = g_ul_value;
-		reverb_buffer.p = 0;
+		old_buffer.values[old_buffer.p] = g_ul_value - ground;
+		old_buffer.p = 0;
 	}
 	
 	ppbuf_insert_active(&buffer, &g_ul_value, 1);
@@ -328,6 +383,20 @@ static void AFEC_Lowpass_callback(void){
 	xQueueSendFromISR( xQueueLowpass, &lowpass, NULL);
 }
 
+void but1_callback(void)
+{
+	xSemaphoreGiveFromISR(xSemaphoreReverb, 4);
+}
+
+void but2_callback(void)
+{
+	xSemaphoreGiveFromISR(xSemaphoreEcho, 4);
+}
+
+void but3_callback(void)
+{
+	
+}
 /************************************************************************/
 /* Funcoes                                                              */
 /************************************************************************/
@@ -491,29 +560,75 @@ void TC_init(Tc * TC, int ID_TC, int TC_CHANNEL, int freq){
 	tc_start(TC, TC_CHANNEL);
 }
 
-// void BUT_init(void){
-// 	/* config. pino botao em modo de entrada */
-// 	pmc_enable_periph_clk(BUT_PIO_ID);
-// 	pio_set_input(BUT_PIO, BUT_PIN_MASK, PIO_PULLUP | PIO_DEBOUNCE);
-// 
-// };
+void button_init(void)
+{
+
+	// Inicializa clock do perif�rico PIO responsavel pelo botao
+	pmc_enable_periph_clk(BUTREVERB_PIO_ID);
+	pmc_enable_periph_clk(BUTECHO_PIO_ID);
+	pmc_enable_periph_clk(BUT3_PIO_ID);
+
+	// Configura PIO para lidar com o pino do bot�o como entrada
+	// com pull-up
+	pio_configure(BUTREVERB_PIO, PIO_INPUT, BUTREVERB_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
+	pio_configure(BUTECHO_PIO, PIO_INPUT, BUTECHO_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
+	pio_configure(BUT3_PIO, PIO_INPUT, BUT3_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
+
+	// Configura interrup��o no pino referente ao botao e associa
+	// fun��o de callback caso uma interrup��o for gerada
+	// a fun��o de callback � a: but_callback()
+	pio_handler_set(BUTREVERB_PIO, BUTREVERB_PIO_ID, BUTREVERB_IDX_MASK, PIO_IT_FALL_EDGE, but1_callback);
+	pio_handler_set(BUTECHO_PIO, BUTECHO_PIO_ID, BUTECHO_IDX_MASK, PIO_IT_FALL_EDGE, but2_callback);
+	pio_handler_set(BUT3_PIO, BUT3_PIO_ID, BUT3_IDX_MASK, PIO_IT_FALL_EDGE, but3_callback);
+
+
+	// Ativa interrup��o
+	pio_enable_interrupt(BUTREVERB_PIO, BUTREVERB_IDX_MASK);
+	pio_enable_interrupt(BUTECHO_PIO, BUTECHO_IDX_MASK);
+	pio_enable_interrupt(BUT3_PIO, BUT3_IDX_MASK);
+
+	// Configura NVIC para receber interrupcoes do PIO do botao
+	// com prioridade 4 (quanto mais pr�ximo de 0 maior)
+	NVIC_EnableIRQ(BUTREVERB_PIO_ID);
+	NVIC_SetPriority(BUTREVERB_PIO_ID, 4); // Prioridade 4
+	NVIC_EnableIRQ(BUTECHO_PIO_ID);
+	NVIC_SetPriority(BUTECHO_PIO_ID, 4); // Prioridade 4
+	NVIC_EnableIRQ(BUT3_PIO_ID);
+	NVIC_SetPriority(BUT3_PIO_ID, 4); // Prioridade 4
+}
+
+void led_init(void)
+{
+	// Configura led
+	pmc_enable_periph_clk(LEDREVERB_PIO_ID);
+	pmc_enable_periph_clk(LEDECHO_PIO_ID);
+
+	pio_configure(LEDREVERB_PIO, PIO_OUTPUT_0, LEDREVERB_IDX_MASK, PIO_DEFAULT);
+	pio_configure(LEDECHO_PIO, PIO_OUTPUT_0, LEDECHO_IDX_MASK, PIO_DEFAULT);
+}
 
 static void task_adc_to_dac(void *pvParameters) {
 
 	xQueueEffects = xQueueCreate( 100, sizeof( effects_t ) );
+	xSemaphoreReverb = xSemaphoreCreateCounting(1, 0);
+	xSemaphoreEcho = xSemaphoreCreateCounting(1, 0);
 	
-	for (int i = 0; i < reverb_buffer.maxp; i++) {
-		reverb_buffer.values[i] = 0;
+	old_buffer.p = 0;
+	old_buffer.maxp = 22000;
+	for (int i = 0; i < old_buffer.maxp; i++) {
+		old_buffer.values[i] = 0;
 	}
-	reverb_buffer.p = 0;
-	reverb_buffer.maxp = 11000;
-
 
 	config_ADC_AUDIO();
 	
-	TC_init(TC0, ID_TC0, 0, 22000);
+	TC_init(TC0, ID_TC0, 0, 44000);
 
 	config_DAC();
+
+	led_init();
+
+	pio_clear(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
+	pio_clear(LEDECHO_PIO, LEDECHO_IDX_MASK);
 	
 	saturation_value = 50;
 	gain_value = 70;
@@ -525,12 +640,28 @@ static void task_adc_to_dac(void *pvParameters) {
 	effects.lowpass = 10000;
 	
 	while(1) {
-		if (xQueueReceive( xQueueEffects, &(effects),  1000 / portTICK_RATE_MS)) {
+		if (xQueueReceive( xQueueEffects, &(effects),  10 / portTICK_RATE_MS)) {
 // 			printf("Gain_Value: %d\n", effects.gain);
 			gain_value = effects.gain;
 			saturation_value = effects.saturation;
 			lowpass_value = effects.lowpass;
 			vTaskDelay( 100 / portTICK_RATE_MS);
+		}
+		if (xSemaphoreTake( xSemaphoreReverb,  10 / portTICK_RATE_MS)) {
+			printf("REVERB PRESSED\n");
+			reverb_on = !reverb_on;
+			if (reverb_on)
+				pio_clear(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
+			else
+				pio_set(LEDREVERB_PIO, LEDREVERB_IDX_MASK);
+		}
+		if (xSemaphoreTake( xSemaphoreEcho,  10 / portTICK_RATE_MS)) {
+			printf("ECHO PRESSED\n");
+			echo_on = !echo_on;
+			if (echo_on)
+				pio_clear(LEDECHO_PIO, LEDECHO_IDX_MASK);
+			else
+				pio_set(LEDECHO_PIO, LEDECHO_IDX_MASK);
 		}
 	}
 }
@@ -542,6 +673,8 @@ void task_effects_controller(void) {
 	xQueueLowpass = xQueueCreate( 100, sizeof( uint32_t ) );
 
 	config_AFEC_EFFECTS();
+
+	button_init();
 	
 	int saturation = 0;
 	int gain = 50;
