@@ -1,3 +1,7 @@
+# Video
+
+https://www.youtube.com/watch?v=YXNt1_dfL5U&feature=youtu.be
+
 # Projeto2_Embarcados
 
 - C
